@@ -97,7 +97,9 @@ namespace Grocery.App.ViewModels
         [RelayCommand]
         public void IncreaseAmount(int productId)
         {
-            GroceryListItem? item = MyGroceryListItems.FirstOrDefault(x => x.ProductId == productId);
+
+            Toast.Make($"IncreaseAmount clicked for ProductId: {productId}");
+            GroceryListItem ? item = MyGroceryListItems.FirstOrDefault(x => x.ProductId == productId);
             if (item == null) return;
             if (item.Amount >= item.Product.Stock) return;
             item.Amount++;
